@@ -4,7 +4,7 @@
   padding: 20px;
   margin-bottom: 40px;
 
-  .bwm-search {
+  .app-search {
     height: 50px;
     width: 300px;
   }
@@ -25,19 +25,6 @@
   .nav-item {
     font-size: 14px;
   }
-
-  .btn-bwm-search {
-    border-color: $main-color;
-    color: $main-color;
-
-    &:hover, &:focus, &:active {
-      background-color: transparent;
-      border-color: $main-color !important;
-      color: $main-color !important;
-      box-shadow: none;
-    }
-  }
-
   .dropdown-item {
     font-size: 14px;
 
