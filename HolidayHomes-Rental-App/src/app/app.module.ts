@@ -14,7 +14,6 @@ import { RentalModule } from './rental/rental.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AppRoutingModule,
     RentalModule
   ],
   providers: [],

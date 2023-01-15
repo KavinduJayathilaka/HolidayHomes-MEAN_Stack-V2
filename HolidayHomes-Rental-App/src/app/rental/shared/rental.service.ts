@@ -11,7 +11,7 @@ export class RentalService {
       city: 'New York',
       street: 'Times Square',
       category: 'apartment',
-      image: 'http://via.placeholder.com/350x250',
+      image: 'https://wallracing.com.au/wp-content/uploads/350x250.png',
       numOfRooms: 3,
       description: 'Very nice apartment',
       dailyPrice: 34,
@@ -24,7 +24,7 @@ export class RentalService {
       city: "San Francisco",
       street: "Main street",
       category: "condo",
-      image: "http://via.placeholder.com/350x250",
+      image: "https://wallracing.com.au/wp-content/uploads/350x250.png",
       numOfRooms: 2,
       description: "Very nice apartment",
       dailyPrice: 12,
@@ -37,7 +37,7 @@ export class RentalService {
       city: "Bratislava",
       street: "Hlavna",
       category: "condo",
-      image: "http://via.placeholder.com/350x250",
+      image: "https://wallracing.com.au/wp-content/uploads/350x250.png",
       numOfRooms: 2,
       description: "Very nice apartment",
       dailyPrice: 334,
@@ -50,7 +50,7 @@ export class RentalService {
       city: "Berlin",
       street: "Haupt strasse",
       category: "house",
-      image: "http://via.placeholder.com/350x250",
+      image: "https://wallracing.com.au/wp-content/uploads/350x250.png",
       numOfRooms: 9,
       description: "Very nice apartment",
       dailyPrice: 33,
@@ -62,7 +62,7 @@ export class RentalService {
         city: 'New York',
         street: 'Times Square',
         category: 'apartment',
-        image: 'http://via.placeholder.com/350x250',
+        image: 'https://wallracing.com.au/wp-content/uploads/350x250.png',
         numOfRooms: 3,
         description: 'Very nice apartment',
         dailyPrice: 34,
@@ -75,7 +75,7 @@ export class RentalService {
         city: "San Francisco",
         street: "Main street",
         category: "condo",
-        image: "http://via.placeholder.com/350x250",
+        image: "https://wallracing.com.au/wp-content/uploads/350x250.png",
         numOfRooms: 2,
         description: "Very nice apartment",
         dailyPrice: 12,
@@ -88,7 +88,7 @@ export class RentalService {
         city: "Bratislava",
         street: "Hlavna",
         category: "condo",
-        image: "http://via.placeholder.com/350x250",
+        image: "https://wallracing.com.au/wp-content/uploads/350x250.png",
         numOfRooms: 2,
         description: "Very nice apartment",
         dailyPrice: 334,
@@ -101,7 +101,7 @@ export class RentalService {
         city: "Berlin",
         street: "Haupt strasse",
         category: "house",
-        image: "http://via.placeholder.com/350x250",
+        image: "https://wallracing.com.au/wp-content/uploads/350x250.png",
         numOfRooms: 9,
         description: "Very nice apartment",
         dailyPrice: 33,
@@ -110,12 +110,19 @@ export class RentalService {
       }
   ]
 
+  getRentalById(rentalId: string): Observable<Rental> {
+    return new Observable(observer => {
+      const rental = this.rentals.find(rental => rental._id === rentalId)
+      setTimeout(() => observer.next(rental), 100);
+    })
+  }
+
   // generic types TODO: Explain in next lecture
   getRentals(): Observable<Rental[]> {
     return new Observable(observer => {
       setTimeout(() => {
         observer.next(this.rentals);
-      }, 100)
+      }, 100);
     })
   }
 }

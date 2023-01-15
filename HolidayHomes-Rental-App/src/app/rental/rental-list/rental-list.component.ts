@@ -8,12 +8,15 @@ import { RentalService } from '../shared/rental.service';
   styleUrls: ['./rental-list.component.scss']
 })
 export class RentalListComponent implements OnInit{
-  rentals: Rental[] = []
+  rentals: Rental[] = [];
 
   constructor(private rentalService: RentalService){}
 
   ngOnInit() {
-    this.rentalService.getRentals()
-      .subscribe((rentals: Rental[]) => {
-        this.rentals = rentals;
-    });}}
+  
+  this.rentalService.getRentals()
+  .subscribe((rentals: Rental[]) => {
+    this.rentals = rentals;
+});
+}
+}

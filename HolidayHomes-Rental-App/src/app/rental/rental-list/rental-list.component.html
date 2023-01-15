@@ -5,16 +5,8 @@
       <div 
         *ngFor="let rental of rentals"
         class="col-md-3 col-xs-12">
-        <a href="#">
-          <div class="card app-card">
-            <img class="card-img-top" src="https://wallracing.com.au/wp-content/uploads/350x250.png" alt="">
-            <div class="card-block">
-              <h6 class="card-subtitle">Whole {{rental.category}} &#183; {{rental.city}}</h6>
-              <h4 class="card-title">{{rental.title}}</h4>
-              <p class="card-text">${{rental.dailyPrice}} per Night &#183; Free Cancelation</p>
-            </div>
-          </div>
-        </a>
-      </div>
+        <app-rental-card 
+        [rental]="rental">
+      </app-rental-card>
     </div>
   </div>
