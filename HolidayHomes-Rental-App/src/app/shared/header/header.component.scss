@@ -1,5 +1,9 @@
 @import '../../../styles/variables';
 
+.bg-dark {
+  background-color: #1a327b!important;
+}
+
 .navbar {
   padding: 20px;
   margin-bottom: 40px;
@@ -30,6 +34,17 @@
 
     &:active, &:focus {
       background-color: $main-color;
+    }
+  }
+  .btn.app-btn-main-search {
+    border-color: #FECD45;
+    color: #FECD45;
+  
+    &:hover, &:focus, &:active {
+      background-color: #FECD45;;
+      border-color: #FECD45;
+      color: white;
+      box-shadow: none;
     }
   }
 }
