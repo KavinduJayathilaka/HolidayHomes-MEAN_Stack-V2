@@ -73,7 +73,8 @@
               "browserTarget": "HolidayHomes-Rental-App:build:production"
             },
             "development": {
-              "browserTarget": "HolidayHomes-Rental-App:build:development"
+              "browserTarget": "HolidayHomes-Rental-App:build:development",
+              "proxyConfig": "proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

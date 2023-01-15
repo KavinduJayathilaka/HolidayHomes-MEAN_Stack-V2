@@ -1,6 +1,6 @@
 <a routerLink="/rentals/{{rental._id}}">
     <div class="card app-card">
-      <img class="card-img-top" src="https://wallracing.com.au/wp-content/uploads/350x250.png" alt="">
+      <img class="card-img-top" [src]="rental.image" alt="">
       <div class="card-block">
         <h6 class="card-subtitle type-{{rental.category}}">Whole {{rental.category}} &#183; {{rental.city}}</h6>
         <h4 class="card-title">{{rental.title}}</h4>

@@ -8,6 +8,7 @@ import { CommonModule } from '@angular/common';
 import { RentalCardComponent } from '../shared/rental-card/rental-card.component';
 import { UppercasePipe, FirstUpperLetterPipe } from '../shared/pipes/uppercase.pipe';
 import { HighlightDirective } from '../shared/directives/custom.directive';
+import { HttpClientModule } from '@angular/common/http';
 
 import { RentalService } from './shared/rental.service';
 
@@ -38,7 +39,8 @@ const routes: Routes = [
   ],
   imports: [
     RouterModule.forChild(routes),
-    CommonModule
+    CommonModule,
+    HttpClientModule
   ]
 })
 export class RentalModule {}
