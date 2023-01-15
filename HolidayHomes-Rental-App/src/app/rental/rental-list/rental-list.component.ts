@@ -4,7 +4,8 @@ import { RentalService } from '../shared/rental.service';
 
 @Component({
   selector: 'app-rental-listing',
-  templateUrl: './rental-list.component.html'
+  templateUrl: './rental-list.component.html',
+  styleUrls: ['./rental-list.component.scss']
 })
 export class RentalListComponent implements OnInit{
   rentals: Rental[] = []
