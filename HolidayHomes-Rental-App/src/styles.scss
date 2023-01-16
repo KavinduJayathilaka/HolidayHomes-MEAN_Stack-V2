@@ -37,4 +37,9 @@ html, body, p {
     color: white;
     box-shadow: none;
   }
+  &:disabled {
+    cursor: auto;
+    background-color: transparent;
+    color: #bf1818;
+  }
 }
