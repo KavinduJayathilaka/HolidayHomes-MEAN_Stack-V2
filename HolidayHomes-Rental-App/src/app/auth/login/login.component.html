@@ -3,9 +3,9 @@
     <div class="row">
       <div class="col-md-5">
         <h1>Login</h1>
-        <!-- <div *ngIf="notifyMessage" class="alert alert-success">
-          Some message
-        </div> -->
+        <div *ngIf="message" class="alert alert-success">
+          {{message}}
+        </div>
         <form [formGroup]="loginForm">
           <div class="form-group">
             <label for="email">Email</label>
@@ -57,11 +57,11 @@
             type="submit" 
             class="btn app-btn-main">Submit</button>
         </form>
-        <!-- <div *ngIf="errors.length > 0" class="alert alert-danger">
+        <div *ngIf="errors.length > 0" class="alert alert-danger">
           <p *ngFor="let error of errors">
             {{error.detail}}
           </p>
-        </div> -->
+        </div>
       </div>
       <div class="col-md-6 ml-auto">
         <div class="image-container">
