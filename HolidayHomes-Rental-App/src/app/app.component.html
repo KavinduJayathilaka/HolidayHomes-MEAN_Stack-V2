@@ -1,4 +1,9 @@
-<app-header></app-header>
+<app-header
+  [isAuthenticated]="auth.isAuthenticated"
+  [username]="auth.username"
+  [logout]="logout">
+</app-header
+>
 
 <div class="container pt-5">
   <router-outlet></router-outlet>
