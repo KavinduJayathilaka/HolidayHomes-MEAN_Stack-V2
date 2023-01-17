@@ -3,12 +3,12 @@
   "compileOnSave": false,
   "compilerOptions": {
     "strictPropertyInitialization": false,
+    "strict": false,
     "noImplicitReturns": false,
     "noImplicitAny": false,
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
-    "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noFallthroughCasesInSwitch": true,
@@ -33,6 +33,7 @@
     "strictTemplates": false,
     "strictNullChecks":false,
     "noImplicitAny": false,
-    "noImplicitReturns": false
+    "noImplicitReturns": false,
+    "strict": false
   }
 }
