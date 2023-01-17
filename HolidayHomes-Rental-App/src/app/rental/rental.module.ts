@@ -11,6 +11,8 @@ import { HighlightDirective } from '../shared/directives/custom.directive';
 import { HttpClientModule } from '@angular/common/http';
 
 import { RentalService } from './shared/rental.service';
+import { RentalSecretComponent } from './rental-secret/rental-secret.component';
+import { AuthGuard } from '../auth/shared/auth.guard'
 
 
 const routes: Routes = [
@@ -19,6 +21,7 @@ const routes: Routes = [
     component: RentalComponent,
     children: [
       {path: '', component: RentalListComponent},
+      {path: 'secret', component: RentalSecretComponent, canActivate: [AuthGuard]},
       {path: ':rentalId', component: RentalDetailComponent}
     ],
     providers: [
@@ -35,7 +38,8 @@ const routes: Routes = [
     RentalCardComponent,
     UppercasePipe,
     FirstUpperLetterPipe,
-    HighlightDirective
+    HighlightDirective,
+    RentalSecretComponent
   ],
   imports: [
     RouterModule.forChild(routes),

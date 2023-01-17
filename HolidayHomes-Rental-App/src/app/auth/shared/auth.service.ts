@@ -27,7 +27,7 @@ class DecodedToken {
 export class AuthService {
 
   private decodedToken: DecodedToken;
-
+  redirectUrl: string | null;
   constructor(private http: HttpClient){
     this.decodedToken = new DecodedToken();
   }
