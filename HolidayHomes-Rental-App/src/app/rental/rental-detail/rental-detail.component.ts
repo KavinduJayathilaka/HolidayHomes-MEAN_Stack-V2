@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+
+import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { RentalService } from '../shared/rental.service';
 import { Rental } from '../shared/rental.model';
@@ -10,13 +11,11 @@ import { Rental } from '../shared/rental.model';
 })
 export class RentalDetailComponent {
 
-  @Input('rental') rental: Rental = {} as Rental;
+  rental: Rental;
 
   constructor(
     private rentalService: RentalService,
-    private route: ActivatedRoute) {
-      this.helloWorld();
-    }
+    private route: ActivatedRoute) {}
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -27,14 +26,8 @@ export class RentalDetailComponent {
         })
     })
   }
-  // Default
-  helloWorld(message: string = "Hola World!!!!") {
-    console.log(message)
-  }
 
-  // Optional
-  // helloWorld(message?: string) {
-  //   if (!message) { alert('Hello Guys!'); return; }
-  //   alert(message);
-  // }
+  get rentalLocation(): string {
+    return `${this.rental.city}, ${this.rental.street}`
+  }
 }

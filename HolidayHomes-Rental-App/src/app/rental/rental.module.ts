@@ -9,6 +9,7 @@ import { RentalCardComponent } from '../shared/rental-card/rental-card.component
 import { UppercasePipe, FirstUpperLetterPipe } from '../shared/pipes/uppercase.pipe';
 import { HighlightDirective } from '../shared/directives/custom.directive';
 import { HttpClientModule } from '@angular/common/http';
+import { MapModule } from '../shared/modules/map/map.module';
 
 import { RentalService } from './shared/rental.service';
 import { RentalSecretComponent } from './rental-secret/rental-secret.component';
@@ -44,7 +45,8 @@ const routes: Routes = [
   imports: [
     RouterModule.forChild(routes),
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
+    MapModule
   ]
 })
 export class RentalModule {}

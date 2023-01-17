@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'bwm-rental',
+  selector: 'app-rental',
   templateUrl: './rental.component.html'
 })
 export class RentalComponent {}

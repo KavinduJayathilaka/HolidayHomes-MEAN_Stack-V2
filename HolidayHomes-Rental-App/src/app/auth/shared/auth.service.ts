@@ -56,11 +56,11 @@ export class AuthService {
         )
     )}
   logout() {
-      localStorage.removeItem('bwm_auth_token');
+      localStorage.removeItem('app_auth_token');
       this.decodedToken = new DecodedToken();
     }
   checkAuthentication(): boolean {
-      const authToken = localStorage.getItem('bwm_auth_token');
+      const authToken = localStorage.getItem('app_auth_token');
       if (!authToken) { return false; }
   
       const decodedToken = jwt.decodeToken(authToken);
