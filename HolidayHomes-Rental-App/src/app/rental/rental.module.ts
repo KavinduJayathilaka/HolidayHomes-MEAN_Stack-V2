@@ -11,6 +11,7 @@ import { HighlightDirective } from '../shared/directives/custom.directive';
 import { MapModule } from '../shared/modules/map/map.module';
 import { FormsModule } from '@angular/forms';
 import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
+import { NgxSmartModalModule } from 'ngx-smart-modal';
 
 import { RentalService } from './shared/rental.service';
 import { RentalSecretComponent } from './rental-secret/rental-secret.component';
@@ -54,7 +55,8 @@ const routes: Routes = [
     CommonModule,
     MapModule,
     FormsModule,
-    NgxDaterangepickerMd.forRoot()
+    NgxDaterangepickerMd.forRoot(),
+    NgxSmartModalModule.forChild()
   ]
 })
 export class RentalModule {}
