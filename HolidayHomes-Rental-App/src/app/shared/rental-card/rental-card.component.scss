@@ -8,10 +8,11 @@ a {
 
 /* SINGLE CARD STYLES*/
 .app-card {
- border: none;
+  border: none;
+  margin-bottom: 20px;
 
- .card-block {
-   padding-top: 8px;
+  .card-block {
+    padding-top: 8px;
 
    .card-subtitle {
      margin: 0;

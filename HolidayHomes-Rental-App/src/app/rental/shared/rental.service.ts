@@ -1,11 +1,18 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { Rental } from './rental.model';
-import { HttpClient } from '@angular/common/http';
-@Injectable()
-export class RentalService {
-  constructor(private http: HttpClient) {}
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { catchError } from 'rxjs/operators';
+import { exctractApiError } from 'src/app/shared/helpers/functions';
 
+@Injectable({
+  providedIn: 'root'
+})
+export class RentalService {
+
+  constructor(
+    private http: HttpClient) {}
+  
   getRentalById(rentalId: string): Observable<Rental> {
     return this.http.get<Rental>(`/api/v1/rentals/${rentalId}`);
   }
@@ -13,5 +20,12 @@ export class RentalService {
   // generic types TODO: Explain in next lecture
   getRentals(): Observable<Rental[]> {
     return this.http.get<Rental[]>(`/api/v1/rentals`);
+  }
+
+  createRental(newRental: Rental): Observable<Rental> {
+    return this.http.post<Rental>('/api/v1/rentals', newRental)
+      .pipe(
+        catchError(
+          (resError: HttpErrorResponse) => throwError(exctractApiError(resError))))
   }
 }

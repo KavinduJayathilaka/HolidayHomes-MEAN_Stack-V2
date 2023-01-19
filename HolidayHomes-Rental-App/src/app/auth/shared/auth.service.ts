@@ -79,9 +79,12 @@ export class AuthService {
     localStorage.setItem('app_auth_token', token);
     return token;
   }
+  get authToken(): string {
+    return localStorage.getItem('app_auth_token') || '';
+  }
 
   get isAuthenticated(): boolean {
-    return moment().isBefore(this.expiration)
+   return moment().isBefore(this.expiration);
   }
 
   get username(): string {

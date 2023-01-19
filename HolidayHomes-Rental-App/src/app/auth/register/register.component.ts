@@ -3,7 +3,7 @@ import { RegisterForm } from '../shared/register-form.model';
 import { NgForm } from '@angular/forms';
 import { AuthService } from '../shared/auth.service';
 import { Router } from '@angular/router';
-
+import { validateInputs } from 'src/app/shared/validators/functions';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -24,7 +24,7 @@ export class RegisterComponent implements OnInit {
   }
 
   register(form: NgForm) {
-    this.validateInputs(form);
+    validateInputs(form);
 
     if (form.invalid) { return; }
 
@@ -38,9 +38,5 @@ export class RegisterComponent implements OnInit {
       }, (errors: AppApi.Error[]) => this.errors = errors);
   }
 
-  validateInputs(form: NgForm) {
-    Object.keys(form.controls).forEach(controlName => {
-      form.controls[controlName].markAsDirty();
-    })
-  }
+
 }

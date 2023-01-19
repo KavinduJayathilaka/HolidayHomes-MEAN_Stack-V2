@@ -8,12 +8,14 @@ import { CommonModule } from '@angular/common';
 import { RentalCardComponent } from '../shared/rental-card/rental-card.component';
 import { UppercasePipe, FirstUpperLetterPipe } from '../shared/pipes/uppercase.pipe';
 import { HighlightDirective } from '../shared/directives/custom.directive';
-import { HttpClientModule } from '@angular/common/http';
 import { MapModule } from '../shared/modules/map/map.module';
+import { FormsModule } from '@angular/forms';
 
 import { RentalService } from './shared/rental.service';
 import { RentalSecretComponent } from './rental-secret/rental-secret.component';
-import { AuthGuard } from '../auth/shared/auth.guard'
+import { AuthGuard } from '../auth/shared/auth.guard';
+import { RentalNewComponent } from './rental-new/rental-new.component'
+
 
 
 const routes: Routes = [
@@ -22,6 +24,7 @@ const routes: Routes = [
     component: RentalComponent,
     children: [
       {path: '', component: RentalListComponent},
+      {path: 'new', component: RentalNewComponent, canActivate: [AuthGuard]},
       {path: 'secret', component: RentalSecretComponent, canActivate: [AuthGuard]},
       {path: ':rentalId', component: RentalDetailComponent}
     ],
@@ -40,13 +43,14 @@ const routes: Routes = [
     UppercasePipe,
     FirstUpperLetterPipe,
     HighlightDirective,
-    RentalSecretComponent
+    RentalSecretComponent,
+    RentalNewComponent
   ],
   imports: [
     RouterModule.forChild(routes),
     CommonModule,
-    HttpClientModule,
-    MapModule
+    MapModule,
+    FormsModule
   ]
 })
 export class RentalModule {}
