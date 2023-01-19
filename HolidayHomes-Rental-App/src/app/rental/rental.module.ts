@@ -14,7 +14,8 @@ import { FormsModule } from '@angular/forms';
 import { RentalService } from './shared/rental.service';
 import { RentalSecretComponent } from './rental-secret/rental-secret.component';
 import { AuthGuard } from '../auth/shared/auth.guard';
-import { RentalNewComponent } from './rental-new/rental-new.component'
+import { RentalNewComponent } from './rental-new/rental-new.component';
+import { RentalBookingComponent } from './components/rental-booking/rental-booking.component'
 
 
 
@@ -44,7 +45,8 @@ const routes: Routes = [
     FirstUpperLetterPipe,
     HighlightDirective,
     RentalSecretComponent,
-    RentalNewComponent
+    RentalNewComponent,
+    RentalBookingComponent
   ],
   imports: [
     RouterModule.forChild(routes),
