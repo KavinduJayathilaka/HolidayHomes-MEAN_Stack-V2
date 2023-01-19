@@ -4,10 +4,12 @@ const router = express.Router();
 const {
     getRentals,
     getRentalById,
-    createRental
+    createRental,
+    getUserRentals
 } = require('../controllers/rentals');
 
 router.get('', getRentals);
+router.get('/me', getUserRentals);
 router.get('/:rentalId', getRentalById);
 router.post('', createRental);
 
