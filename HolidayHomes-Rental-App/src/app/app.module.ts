@@ -9,6 +9,8 @@ import { HeaderComponent } from './shared/header/header.component';
 import { RentalModule } from './rental/rental.module';
 import { AuthModule } from './auth/auth.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 import { TokenInterceptor } from './auth/shared/token.interceptor';
 @NgModule({
@@ -22,7 +24,9 @@ import { TokenInterceptor } from './auth/shared/token.interceptor';
     AppRoutingModule,
     RentalModule,
     AuthModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [
     {

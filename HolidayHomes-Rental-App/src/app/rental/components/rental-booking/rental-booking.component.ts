@@ -5,6 +5,7 @@ import { Rental } from '../../shared/rental.model';
 import { NgxSmartModalService } from 'ngx-smart-modal';
 import { TimeService } from 'src/app/shared/services/time.service';
 import { BookingService } from 'src/app/booking/shared/booking.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-rental-booking',
@@ -16,29 +17,43 @@ export class RentalBookingComponent implements OnInit {
   @Input('isAuth') isAuth = false;
   @Input('rental') rental: Rental;
 
+  errors: AppApi.Error[] = [];
   newBooking: Booking;
   calendar: {startDate: Moment, endDate: Moment};
+  madeBookings: string[] = [];
   locale = {
     format: 'YYYY/MM/DD'
   }
 
   constructor(
+    private toastr: ToastrService,
     private bookingService: BookingService,
     public timeService: TimeService,
     public modalService: NgxSmartModalService) { }
 
   ngOnInit() {
     this.initBooking();
+    this.bookingService
+      .getBookings(this.rental._id)
+      .subscribe(bookings => {
+        bookings.forEach(booking => this.addBookedOutDates(booking.startAt, booking.endAt))
+      })
   }
 
   reservePlace() {
     this.newBooking.rental = {...this.rental};
+    this.errors = [];
     this.bookingService
       .createBooking(this.newBooking)
       .subscribe((savedBooking) => {
-        alert('Huray! Booking created!');
-      }, (error) => {
-        alert('WE cannot make booking!');
+        this.toastr.success('Booking has been created!', 'Booking',
+          {timeOut: 3000, closeButton: true});
+        this.addBookedOutDates(savedBooking.startAt, savedBooking.endAt);
+        this.calendar = null;
+        this.initBooking();
+        this.modal.close();
+      }, (errors) => {
+        this.errors = errors;
       })
   }
 
@@ -49,9 +64,7 @@ export class RentalBookingComponent implements OnInit {
 
   updateBookingDates({startDate, endDate}: {[key: string]: Moment}) {
     if (!startDate || !endDate) { return; }
-    debugger
     if (startDate.isSame(endDate, 'days')) {
-      alert('Invalid Dates!');
       this.calendar = null;
     }
     
@@ -62,11 +75,21 @@ export class RentalBookingComponent implements OnInit {
   }
 
   checkIfDateIsInvalid = (date: Moment): boolean => {
-    return this.timeService.isDateInPast(date);
+    return this.timeService.isDateInPast(date) ||
+           this.madeBookings.includes(date.format())
   }
 
   openConfirmationModal() {
-    this.modalService.getModal('confirmationModal').open();
+    this.modal.open();
+  }
+
+  private addBookedOutDates(startAt: string, endAt: string) {
+    const dateRange = this.timeService.getRangeOfDates(startAt, endAt);
+    this.madeBookings.push(...dateRange);
+  }
+
+  get modal() {
+    return this.modalService.getModal('confirmationModal');
   }
 
   get canOpenConfirmation() {
