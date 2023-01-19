@@ -1,7 +1,7 @@
 @import '../../../styles/variables';
 
-.bg-dark {
-  background-color: #1a327b!important;
+.bg-light{
+  background-color: #414e57!important;
 }
 
 .navbar {
@@ -12,12 +12,14 @@
     height: 50px;
     width: 300px;
   }
-
+ .nav-link{
+  color: #ffffff;
+ }
   .navbar-brand {
     margin-right: 30px;
     font-size: 30px;
     letter-spacing: 1px;
-    color: $main-color;
+    color: #f9602f;
     font-weight: 500;
 
     img {
@@ -25,9 +27,14 @@
       height: 20px;
     }
   }
+  .nav-search-btn{
+    color: #ffffff;
+    border-color: #f9602f
+  }
 
   .nav-item {
     font-size: 14px;
+    color: rgb(255, 255, 255);
   }
   .dropdown-item {
     font-size: 14px;

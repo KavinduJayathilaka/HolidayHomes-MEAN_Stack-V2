@@ -10,6 +10,8 @@ a {
 .app-card {
   border: none;
   margin-bottom: 20px;
+  background-color: #f3f3f3;
+  ;
 
   .card-block {
     padding-top: 8px;
@@ -20,19 +22,19 @@ a {
      font-size: 12px;
      text-transform: uppercase;
     //  color: #484848;
-    color: #16861a
+    color: #fa683c
    }
 
    .card-title {
      font-size: 19px;
      margin: 3px 0;
-     color: #FECD45;
+     color: #fa683c;
    }
 
    .card-text {
      font-size: 14px;
      font-weight: 300;
-     color: #7e7e7e;
+     color: #fa683c;
      margin-bottom: 0;
    }
  }

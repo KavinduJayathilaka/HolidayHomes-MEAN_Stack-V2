@@ -17,7 +17,8 @@ import { RentalService } from './shared/rental.service';
 import { RentalSecretComponent } from './rental-secret/rental-secret.component';
 import { AuthGuard } from '../auth/shared/auth.guard';
 import { RentalNewComponent } from './rental-new/rental-new.component';
-import { RentalBookingComponent } from './components/rental-booking/rental-booking.component'
+import { RentalBookingComponent } from './components/rental-booking/rental-booking.component';
+import { RentalHomesComponent } from './rental-homes/rental-homes.component'
 
 
 
@@ -29,6 +30,7 @@ const routes: Routes = [
       {path: '', component: RentalListComponent},
       {path: 'new', component: RentalNewComponent, canActivate: [AuthGuard]},
       {path: 'secret', component: RentalSecretComponent, canActivate: [AuthGuard]},
+      {path: ':city/homes', component: RentalHomesComponent},
       {path: ':rentalId', component: RentalDetailComponent}
     ],
     providers: [
@@ -48,7 +50,8 @@ const routes: Routes = [
     HighlightDirective,
     RentalSecretComponent,
     RentalNewComponent,
-    RentalBookingComponent
+    RentalBookingComponent,
+    RentalHomesComponent
   ],
   imports: [
     RouterModule.forChild(routes),
