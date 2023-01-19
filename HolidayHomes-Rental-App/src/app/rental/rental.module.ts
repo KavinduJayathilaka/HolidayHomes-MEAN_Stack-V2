@@ -10,6 +10,7 @@ import { UppercasePipe, FirstUpperLetterPipe } from '../shared/pipes/uppercase.p
 import { HighlightDirective } from '../shared/directives/custom.directive';
 import { MapModule } from '../shared/modules/map/map.module';
 import { FormsModule } from '@angular/forms';
+import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
 
 import { RentalService } from './shared/rental.service';
 import { RentalSecretComponent } from './rental-secret/rental-secret.component';
@@ -52,7 +53,8 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     CommonModule,
     MapModule,
-    FormsModule
+    FormsModule,
+    NgxDaterangepickerMd.forRoot()
   ]
 })
 export class RentalModule {}
