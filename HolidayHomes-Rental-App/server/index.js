@@ -8,10 +8,13 @@ const { provideErrorHandler } = require('./middlewares');
 const rentalRoutes = require('./routes/rentals');
 const usersRoutes = require('./routes/users');
 const { onlyAuthUser } = require('./controllers/users');
+const bookingRoutes = require('./routes/bookings');
+
 
 // models
 const Rental = require('./models/rental');
 const User = require('./models/user');
+const booking = require('./models/booking');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -35,6 +38,7 @@ app.get('/api/v1/secret', onlyAuthUser, (req, res) => {
 // Api Routes
 app.use('/api/v1/rentals', rentalRoutes);
 app.use('/api/v1/users', usersRoutes);
+app.use('/api/v1/bookings', bookingRoutes);
 
 app.listen(PORT, () => {
     console.log('Server is up and running on port: ', PORT);
