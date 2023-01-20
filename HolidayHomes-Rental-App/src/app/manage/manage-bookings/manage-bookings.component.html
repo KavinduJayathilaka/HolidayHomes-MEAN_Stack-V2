@@ -1,9 +1,16 @@
-
 <div [ngSwitch]="bookingType">
-    <div *ngSwitchCase="bookingTypes.received">
-      <app-booking-listing title="RECEIVED BOOKINGS"></app-booking-listing>
-    </div>
-    <div *ngSwitchDefault>
-      <app-booking-listing title="ALL BOOKINGS"></app-booking-listing>
-    </div>
+  <div *ngSwitchCase="bookingTypes.received">
+    <app-booking-listing 
+      [type]="bookingTypes.received"
+      title="Received Bookings"
+      [getBookings]="getReceivedBookings">
+    </app-booking-listing>
   </div>
+  <div *ngSwitchDefault>
+    <app-booking-listing 
+      [type]="bookingTypes.all"
+      title="My Bookings"
+      [getBookings]="getAuthUserBookings">
+    </app-booking-listing>
+  </div>
+</div>

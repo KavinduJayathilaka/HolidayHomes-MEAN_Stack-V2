@@ -6,7 +6,7 @@ import { RentalListComponent } from './rental-list/rental-list.component';
 import { RentalComponent } from './rental.component';
 import { CommonModule } from '@angular/common';
 import { SharedRentalModule } from '../shared/modules/shared-rental.module';
-import { UppercasePipe, FirstUpperLetterPipe } from '../shared/pipes/uppercase.pipe';
+import {  FirstUpperLetterPipe } from '../shared/pipes/uppercase.pipe';
 import { HighlightDirective } from '../shared/directives/custom.directive';
 import { MapModule } from '../shared/modules/map/map.module';
 import { FormsModule } from '@angular/forms';
@@ -18,7 +18,8 @@ import { RentalSecretComponent } from './rental-secret/rental-secret.component';
 import { AuthGuard } from '../auth/shared/auth.guard';
 import { RentalNewComponent } from './rental-new/rental-new.component';
 import { RentalBookingComponent } from './components/rental-booking/rental-booking.component';
-import { RentalHomesComponent } from './rental-homes/rental-homes.component'
+import { RentalHomesComponent } from './rental-homes/rental-homes.component';
+import { SharedModule } from '../shared/modules/shared.module';
 
 
 
@@ -44,7 +45,6 @@ const routes: Routes = [
     RentalDetailComponent,
     RentalListComponent,
     RentalComponent,
-    UppercasePipe,
     FirstUpperLetterPipe,
     HighlightDirective,
     RentalSecretComponent,
@@ -53,6 +53,7 @@ const routes: Routes = [
     RentalHomesComponent
   ],
   imports: [
+    SharedModule,
     RouterModule.forChild(routes),
     CommonModule,
     MapModule,
