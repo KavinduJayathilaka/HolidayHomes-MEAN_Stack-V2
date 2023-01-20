@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ManageComponent } from './manage.component';
 import { AuthGuard } from '../auth/shared/auth.guard';
 import { BookingListingComponent } from './components/booking-listing/booking-listing.component';
+import { SharedRentalModule } from '../shared/modules/shared-rental.module';
 
 const routes: Routes = [
   {
@@ -23,11 +24,11 @@ const routes: Routes = [
     ManageRentalsComponent, 
     ManageBookingsComponent,
     ManageComponent,
-    BookingListingComponent,
-  
+    BookingListingComponent
   ],
   imports: [
     CommonModule,
+    SharedRentalModule,
     RouterModule.forChild(routes)
   ]
 })

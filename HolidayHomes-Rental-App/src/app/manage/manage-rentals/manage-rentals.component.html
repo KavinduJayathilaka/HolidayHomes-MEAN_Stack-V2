@@ -1,1 +1,20 @@
-<p>manage-rentals works!</p>
+<div class="app-list-page">
+  <h1 class="title">My Rentals</h1>
+  <div *ngIf="rentals" class="row">
+    <div 
+      *ngFor="let rental of rentals"
+      class="col-md-3 col-xs-12">
+        <app-rental-card 
+          [rentalItem]="rental">
+          <button 
+            (click)="deleteRental(rental._id)"
+            class="mt-1 btn btn-danger">
+            Delete
+          </button>
+        </app-rental-card>
+    </div>
+    <div *ngIf="rentals.length === 0" class="alert alert-warning">
+      No rentals created :(
+    </div>
+  </div>
+</div>

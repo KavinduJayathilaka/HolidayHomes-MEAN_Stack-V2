@@ -22,6 +22,13 @@ export class RentalService {
     return this.http.get<Rental[]>(`/api/v1/rentals`);
   }
 
+    getAuthUserRentals(): Observable<Rental[]> {
+    return this.http.get<Rental[]>(`/api/v1/rentals/me`);
+  }
+
+  deleteRental(rentalId: string): Observable<any> {
+    return this.http.delete(`/api/v1/rentals/${rentalId}`);
+  }
   getRentalsByCity(city: string): Observable<Rental[]> {
     return this.http.get<Rental[]>(`/api/v1/rentals?city=${city}`);
   }
