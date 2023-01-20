@@ -46,7 +46,28 @@ exports.createRental = (req, res) => {
         return res.json(createdRental);
     })
 }
+exports.deleteRental = async (req, res) => {
+    const { rentalId } = req.params;
+    const { user } = res.locals;
 
+    try {
+
+        const bookings = await Booking.find({ rental });
+
+        if (bookings && bookings.length > 0) {
+            return res.sendApiError(
+                {
+                    title: 'Active Bookings',
+                    detail: 'Cannot delete rental with active booking!'
+                });
+        }
+
+        await rental.remove();
+        return res.json({ id: rentalId });
+    } catch (error) {
+        return res.mongoError(error);
+    }
+}
 
 
 // middlewares

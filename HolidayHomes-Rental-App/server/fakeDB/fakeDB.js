@@ -12,6 +12,7 @@ class FakeDb {
     async cleanDb() {
         await User.remove({});
         await Rental.remove({});
+        await Booking.deleteMany({});
     }
 
     pushDataToDb() {
