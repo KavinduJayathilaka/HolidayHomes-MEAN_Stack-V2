@@ -11,6 +11,7 @@ import { AuthModule } from './auth/auth.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { ManageModule } from './manage/manage.module';
 
 import { TokenInterceptor } from './auth/shared/token.interceptor';
 @NgModule({
@@ -25,6 +26,7 @@ import { TokenInterceptor } from './auth/shared/token.interceptor';
     RentalModule,
     AuthModule,
     HttpClientModule,
+    ManageModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot()
   ],
