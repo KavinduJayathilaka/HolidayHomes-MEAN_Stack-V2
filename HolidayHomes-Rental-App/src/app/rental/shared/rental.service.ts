@@ -39,4 +39,7 @@ export class RentalService {
         catchError(
           (resError: HttpErrorResponse) => throwError(exctractApiError(resError))))
   }
+  verifyRentalOwner(rentalId: string): Observable<any> {
+    return this.http.get(`/api/v1/rentals/${rentalId}/verify-user`);
+  }
 }

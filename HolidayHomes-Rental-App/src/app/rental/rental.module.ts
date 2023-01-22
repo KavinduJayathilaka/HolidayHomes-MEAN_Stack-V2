@@ -21,6 +21,9 @@ import { RentalBookingComponent } from './components/rental-booking/rental-booki
 import { RentalHomesComponent } from './rental-homes/rental-homes.component';
 import { SharedModule } from '../shared/modules/shared.module';
 import { RentalEditComponent } from './rental-edit/rental-edit.component';
+// import { RentalGuard } from '../auth/shared/rental.guard';
+import { EditableModule } from '../shared/modules/editable/editable.module';
+
 
 
 
@@ -65,6 +68,7 @@ const routes: Routes = [
     NgxDaterangepickerMd.forRoot(),
     NgxSmartModalModule.forChild(),
     SharedRentalModule,
+    EditableModule,
   ]
 })
 export class RentalModule {}
