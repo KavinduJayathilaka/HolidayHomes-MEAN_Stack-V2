@@ -5,7 +5,7 @@
       *ngFor="let rental of rentals"
       class="col-md-3 col-xs-12">
         <app-rental-card 
-          [rentalItem]="rental">
+          [rental]="rental">
           <button 
             (click)="deleteRental(rental._id)"
             class="mt-1 btn btn-danger">
