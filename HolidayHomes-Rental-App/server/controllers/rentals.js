@@ -35,6 +35,26 @@ exports.getRentalById = (req, res) => {
         return res.json(foundRental)
     })
 }
+exports.verifyUser = async (req, res) => {
+    const { user } = res.locals;
+    const { rentalId } = req.params;
+
+    try {
+        const rental = await Rental.findById(rentalId).populate('owner');
+
+        if (rental.owner.id !== user.id) {
+            return res.sendApiError(
+                {
+                    title: 'Invalid User',
+                    detail: 'You are not owner of this rental!'
+                });
+        }
+
+        return res.json({ status: 'verified' });
+    } catch (error) {
+        return res.mongoError(error);
+    }
+}
 
 exports.createRental = (req, res) => {
     const rentalData = req.body;
@@ -46,6 +66,30 @@ exports.createRental = (req, res) => {
         return res.json(createdRental);
     })
 }
+exports.updateRental = async (req, res) => {
+    const { rentalId } = req.params;
+    const { user } = res.locals;
+    const rentalData = req.body;
+
+    try {
+        const rental = await Rental.findById(rentalId).populate('owner');
+
+        if (rental.owner.id !== user.id) {
+            return res.sendApiError(
+                {
+                    title: 'Invalid User',
+                    detail: 'You are not owner of this rental!'
+                });
+        }
+
+        rental.set(rentalData);
+        await rental.save();
+        return res.status(200).send(rental);
+    } catch (error) {
+        return res.mongoError(error);
+    }
+}
+
 exports.deleteRental = async (req, res) => {
     const { rentalId } = req.params;
     const { user } = res.locals;
