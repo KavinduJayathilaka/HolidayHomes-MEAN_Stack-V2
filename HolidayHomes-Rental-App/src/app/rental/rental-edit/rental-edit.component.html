@@ -25,7 +25,9 @@ id="rentalDetails">
         </h2>
         <!-- <h1 [appHighlight]="'transparent'" class="rental-title">{{rental.title}}</h1> -->
         <app-editable-input>
-          
+          [entity]="rental"
+          [field]="'title'"
+          className="rental-title">
         </app-editable-input>
         <h2 class="rental-city">{{rental.city | upper:'firstLetterUpper'}}</h2>
         <div class="rental-room-info">

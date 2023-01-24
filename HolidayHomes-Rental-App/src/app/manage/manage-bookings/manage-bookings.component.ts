@@ -9,7 +9,7 @@ enum BOOKING_TYPES {
 }
 
 @Component({
-  selector: 'bwm-manage-bookings',
+  selector: 'app-manage-bookings',
   templateUrl: './manage-bookings.component.html',
   styleUrls: ['./manage-bookings.component.scss']
 })
