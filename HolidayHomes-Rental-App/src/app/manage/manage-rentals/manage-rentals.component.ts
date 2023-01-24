@@ -25,7 +25,16 @@ export class ManageRentalsComponent implements OnInit {
     const canDelete = this.askForPermission();
     if (!canDelete) { return; }
     
-    alert(`Deleting rental with id: ${rentalId}`);
+    this.rentalService.deleteRental(rentalId)
+      .subscribe({
+        next: _ => {
+          const index = this.rentals.findIndex(r => r._id === rentalId);
+          this.rentals.splice(index, 1);
+   
+          alert('Rental has been deleted!');
+        },
+        error: _ => alert('Rental cannot be deleted!')
+      })
   }
 
   private askForPermission(): boolean {

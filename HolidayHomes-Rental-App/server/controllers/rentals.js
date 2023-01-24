@@ -1,5 +1,6 @@
 
 const Rental = require('../models/rental');
+const Booking = require('../models/booking');
 
 exports.getRentals = async (req, res) => {
     const { city } = req.query;
@@ -95,7 +96,7 @@ exports.deleteRental = async (req, res) => {
     const { user } = res.locals;
 
     try {
-
+        const rental = await Rental.findById(rentalId).populate('owner');
         const bookings = await Booking.find({ rental });
 
         if (bookings && bookings.length > 0) {
