@@ -25,6 +25,7 @@ id="rentalDetails">
         </h2>
         <!-- <h1 [appHighlight]="'transparent'" class="rental-title">{{rental.title}}</h1> -->
         <app-editable-input
+        (entityUpdated)="updateRental($event)"
         [entity]="rental"
         [field]="'title'"
         className="rental-title"

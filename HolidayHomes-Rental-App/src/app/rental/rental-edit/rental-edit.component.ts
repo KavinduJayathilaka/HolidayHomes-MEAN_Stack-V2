@@ -27,6 +27,9 @@ export class RentalEditComponent implements OnInit {
         })
     })
   }
+  updateRental(rentalEvent: any) {
+    alert(JSON.stringify(rentalEvent.data));
+  }
 
   get rentalLocation(): string {
     return `${this.rental.city}, ${this.rental.street}`
