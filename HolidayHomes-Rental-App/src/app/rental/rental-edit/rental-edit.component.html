@@ -24,11 +24,12 @@ id="rentalDetails">
           {{rental.shared ? 'Shared' : 'Whole'}} {{rental.category}}
         </h2>
         <!-- <h1 [appHighlight]="'transparent'" class="rental-title">{{rental.title}}</h1> -->
-        <app-editable-input>
-          [entity]="rental"
-          [field]="'title'"
-          className="rental-title">
-        </app-editable-input>
+        <app-editable-input
+        [entity]="rental"
+        [field]="'title'"
+        className="rental-title"
+      >
+      </app-editable-input>
         <h2 class="rental-city">{{rental.city | upper:'firstLetterUpper'}}</h2>
         <div class="rental-room-info">
           <span><i class="fa fa-building"></i>{{rental.numOfRooms}} bedrooms</span>
