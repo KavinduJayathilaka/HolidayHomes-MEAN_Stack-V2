@@ -27,6 +27,7 @@ export class EditableInputComponent {
       this.entityUpdated.emit({
         data: { [this.entityField]: this.entityValue }
       })
+      this.setOriginValue();
     }
 
     this.isActiveInput = false;
