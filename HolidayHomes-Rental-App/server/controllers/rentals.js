@@ -75,7 +75,7 @@ exports.updateRental = async (req, res) => {
     try {
         const rental = await Rental.findById(rentalId).populate('owner');
 
-        if (rental.owner.id !== user.id) {
+        if (rental.owner._id.toString() !== user._id.toString()) {
             return res.sendApiError(
                 {
                     title: 'Invalid User',
