@@ -4,6 +4,10 @@
     .button-container {
       align-self: center;
     }
+
+    &-inline {
+      display: inline-flex;
+    }
   
     .btn {
       &.btn-editable {
