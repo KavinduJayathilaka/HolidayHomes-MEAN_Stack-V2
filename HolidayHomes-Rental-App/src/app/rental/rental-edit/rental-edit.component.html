@@ -20,9 +20,25 @@ id="rentalDetails">
   <div class="row">
     <div class="col-md-8">
       <div class="rental">
-        <h2 class="rental-type type-{{rental.category}}">
-          {{rental.shared ? 'Shared' : 'Whole'}} {{rental.category}}
-        </h2>
+        <div class="rental-type type-{{rental.category}}">
+          Shared:
+          <app-editable-select
+            (entityUpdated)="updateRental($event)"
+            [options]="[true, false]"
+            [entity]="rental"
+            [field]="'shared'"
+            [inline]="true"
+            className="rental-shared">
+          </app-editable-select>
+
+        <app-editable-select
+          (entityUpdated)="updateRental($event)"
+          [options]="rentalCategories"
+          [entity]="rental"
+          [field]="'category'"
+          className="rental-category">
+        </app-editable-select>
+        </div>
         <app-editable-input
           (entityUpdated)="updateRental($event)"
           [entity]="rental"
