@@ -4,7 +4,7 @@ import { RentalService } from '../shared/rental.service';
 import { ActivatedRoute } from '@angular/router';
 import { AuthService } from 'src/app/auth/shared/auth.service';
 import { UppercasePipe } from 'src/app/shared/pipes/uppercase.pipe';
-
+import { Subject } from 'rxjs';
 @Component({
   selector: 'app-rental-edit',
   templateUrl: './rental-edit.component.html',
@@ -14,6 +14,7 @@ export class RentalEditComponent implements OnInit {
 
   rental: Rental;
   rentalCategories = Rental.CATEGORIES;
+  locationSubject = new Subject<string>();
 
   constructor(
     private rentalService: RentalService,
@@ -33,6 +34,10 @@ export class RentalEditComponent implements OnInit {
   }
   updateRental(rentalEvent: any) {
     const { data, notifier } = rentalEvent;
+
+    if (data.city || data.street) {
+      this.locationSubject.next(`${this.rental.city}, ${this.rental.street}`);
+    }
 
     this.rentalService
       .updateRental(this.rental._id, data)

@@ -10,6 +10,7 @@ id="rentalDetails">
     </div>
     <div class="col-md-6">
       <app-map
+        [mapNotifier]="locationSubject"
         [location]="rentalLocation">
       </app-map>
     </div>
