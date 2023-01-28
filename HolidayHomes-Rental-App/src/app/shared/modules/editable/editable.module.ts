@@ -10,7 +10,8 @@ import { EditableTextareaComponent } from './editable-textarea/editable-textarea
     EditableTextareaComponent
   ],
   exports: [
-    EditableInputComponent
+    EditableInputComponent,
+    EditableTextareaComponent
   ],
   imports: [
     CommonModule,
