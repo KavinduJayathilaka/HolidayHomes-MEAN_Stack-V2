@@ -1,8 +1,8 @@
 <div class="booking">
-  <!-- TODO: rental.dailyPrice -->
+
   <h3 class="booking-price">${{rental.dailyPrice}} <span class="booking-per-night">per night</span></h3>
   <hr>
-  <!-- TODO: if is authenticated -->
+
   <ng-container *ngIf="isAuth">
     <form>
       <label>Dates</label>
@@ -17,7 +17,7 @@
         class="form-control"/>
       <div class="form-group">
         <label for="guests">Guests</label>
-        <!-- TODO: bind to newBooking.guests -->
+       
         <input 
           [(ngModel)]="newBooking.guests"
           min="1"
@@ -33,7 +33,7 @@
       class="btn btn-danger btn-confirm btn-block">Reserve place now</button>
     <hr>
   </ng-container>
-  <!-- TODO: if is NOT authenticated -->
+
   <div *ngIf="!isAuth" class="should-login">
     <a class="btn app-btn-main" routerLink="/login">Login and book this place today</a>
   </div>

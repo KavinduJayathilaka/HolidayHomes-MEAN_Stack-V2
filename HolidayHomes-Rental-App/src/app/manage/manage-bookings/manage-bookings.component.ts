@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BookingService } from 'src/app/booking/shared/booking.service';
-
+import { render } from 'creditcardpayments/creditCardPayments';
 
 enum BOOKING_TYPES {
   received = 'received',
@@ -20,7 +20,19 @@ export class ManageBookingsComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private bookingService: BookingService) { }
+    private bookingService: BookingService) { 
+
+      render(
+        {
+            id: "#payments",
+            currency: "USD",
+            value: "100.00",
+            onApprove: (details) => {
+        
+            }
+          }
+        );
+    }
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
