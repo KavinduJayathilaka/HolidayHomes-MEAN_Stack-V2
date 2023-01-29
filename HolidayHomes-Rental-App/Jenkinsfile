@@ -6,8 +6,8 @@ pipeline {
 
     stages {
         stage('Clone Repository') {
-            steps {
-                git branch: "${env.main}", url: "${env.https://github.com/KavinduJayathilaka/HolidayHomes-MEAN_Stack-V2.git}"
+             steps {
+                git 'https://github.com/KavinduJayathilaka/HolidayHomes-MEAN_Stack-V2.git'
             }
         }
 
