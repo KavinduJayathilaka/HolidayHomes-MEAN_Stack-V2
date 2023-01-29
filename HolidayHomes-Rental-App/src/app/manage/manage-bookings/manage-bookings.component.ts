@@ -22,9 +22,15 @@ export class ManageBookingsComponent implements OnInit {
     private route: ActivatedRoute,
     private bookingService: BookingService) { 
 
+   
+    }
+
+  ngOnInit() {
+    this.route.queryParams.subscribe(params => {
+      this.bookingType = params['type'] || this.bookingTypes.all;
       render(
         {
-            id: "#payments",
+            id: "#paypal-button",
             currency: "USD",
             value: "100.00",
             onApprove: (details) => {
@@ -32,11 +38,6 @@ export class ManageBookingsComponent implements OnInit {
             }
           }
         );
-    }
-
-  ngOnInit() {
-    this.route.queryParams.subscribe(params => {
-      this.bookingType = params['type'] || this.bookingTypes.all;
     })
   }
 

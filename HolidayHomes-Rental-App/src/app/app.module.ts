@@ -14,10 +14,12 @@ import { ToastrModule } from 'ngx-toastr';
 import { ManageModule } from './manage/manage.module';
 
 import { TokenInterceptor } from './auth/shared/token.interceptor';
+import { FooterComponent } from './shared/footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

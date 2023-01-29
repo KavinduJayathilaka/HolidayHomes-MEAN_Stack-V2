@@ -6,11 +6,18 @@
       class="col-md-3 col-xs-12">
         <app-rental-card 
           [rental]="rental">
-          <button 
-            (click)="deleteRental(rental._id)"
-            class="mt-1 btn btn-danger">
-            Delete
-          </button>
+          <div class="button-container mt-1">
+            <button 
+              (click)="deleteRental(rental._id)"
+              class="btn btn-danger">
+              Delete
+            </button>
+            <a 
+              class="btn app-btn-main ml-1"
+              routerLink="/rentals/{{rental._id}}/edit">
+              Edit
+            </a>
+          </div>
         </app-rental-card>
     </div>
     <div *ngIf="rentals.length === 0" class="alert alert-warning">
