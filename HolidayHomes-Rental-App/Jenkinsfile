@@ -1,0 +1,42 @@
+pipeline {
+    agent any
+    options {
+        skipDefaultCheckout true
+    }
+
+    stages {
+        stage('Clone Repository') {
+            steps {
+                git branch: "${env.main}", url: "${env.https://github.com/KavinduJayathilaka/HolidayHomes-MEAN_Stack-V2.git}"
+            }
+        }
+
+        stage('Build') {
+            steps {
+                sh './gradlew build'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                sh './gradlew test'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                sh './deploy.sh'
+            }
+        }
+    }
+
+    post {
+        always {
+            githubStatus context: 'continuous-integration/jenkins', state: 'success'
+            if (env.CHANGE_ID) {
+                githubComment message: "The pipeline completed successfully!"
+                githubLabel labels: ['approved']
+            }
+        }
+    }
+}
