@@ -15,11 +15,13 @@ import { ManageModule } from './manage/manage.module';
 
 import { TokenInterceptor } from './auth/shared/token.interceptor';
 import { FooterComponent } from './shared/footer/footer.component';
+import { RatingsComponent } from './shared/ratings/ratings.component';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
+    RatingsComponent,
   ],
   imports: [
     BrowserModule,
