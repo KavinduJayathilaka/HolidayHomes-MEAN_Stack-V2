@@ -8,7 +8,7 @@ pipeline {
         stage('Clone Repository') {
              steps {
                 git 'https://github.com/KavinduJayathilaka/HolidayHomes-MEAN_Stack-V2.git'
-               credentialsId : '9f10d6fd-0427-4aab-b612-a913fd91854a'
+               credentialsId  '9f10d6fd-0427-4aab-b612-a913fd91854a'
             }
         }
 
