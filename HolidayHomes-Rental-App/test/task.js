@@ -102,7 +102,7 @@ describe('Rentals API', () => {
                 });
         });
 
-        it("It should NOT POST a new task without the name property", (done) => {
+        it("It should NOT POST a new login without the Password property", (done) => {
             const login = {
                 email: "testuser@gmail.Com",
             };
